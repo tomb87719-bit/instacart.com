@@ -205,3 +205,107 @@ footer p{font-size:13px;line-height:1.8}footer>small{font-size:12px}
  .privacy p,.faq details p{font-size:13px}
  footer p{font-size:12px}
 }
+
+
+
+
+/* Hero grocery animation: show the complete illustration without cropping */
+.heroart.hero-animation{
+  height:300px;
+  min-height:0;
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:20px;
+  background:#fbf4e8;
+}
+.heroart.hero-animation img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:560px;
+  max-height:300px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:18px;
+  animation:none;
+}
+@media(max-width:800px){
+  .heroart.hero-animation{height:230px;min-height:0}
+  .heroart.hero-animation img{max-height:230px}
+}
+@media(max-width:600px){
+  .heroart.hero-animation{height:210px;min-height:0;margin-top:12px}
+  .heroart.hero-animation img{max-height:210px;width:100%}
+}
+
+
+/* Full-size contained grocery bag with produce visibly dropping into its opening */
+.heroart.hero-animation{
+  height:300px;
+  min-height:0;
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:20px;
+  background:#fbf4e8;
+}
+.heroart.hero-animation>img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:560px;
+  max-height:300px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:18px;
+  animation:none!important;
+}
+.heroart .produce-item{
+  position:absolute;
+  z-index:2;
+  top:2%;
+  left:50%;
+  font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  font-size:clamp(23px,3vw,34px);
+  line-height:1;
+  opacity:0;
+  transform:translate3d(-50%,-18px,0) rotate(-12deg) scale(.72);
+  filter:drop-shadow(0 3px 2px rgba(40,50,30,.14));
+  pointer-events:none;
+  animation:produceDrop 3.8s ease-in infinite;
+  will-change:transform,opacity;
+}
+.heroart .produce-tomato{left:42%;animation-delay:0s}
+.heroart .produce-greens{left:49%;animation-delay:.48s}
+.heroart .produce-pepper{left:57%;animation-delay:.96s}
+.heroart .produce-meat{left:45%;animation-delay:1.44s}
+.heroart .produce-milk{left:55%;animation-delay:1.92s}
+.heroart .produce-apple{left:51%;animation-delay:2.40s}
+.heroart .produce-carrot{left:43%;animation-delay:2.88s}
+@keyframes produceDrop{
+  0%{opacity:0;transform:translate3d(-50%,-18px,0) rotate(-12deg) scale(.72)}
+  12%{opacity:1}
+  57%{opacity:1;transform:translate3d(-50%,112px,0) rotate(9deg) scale(1)}
+  72%{opacity:0;transform:translate3d(-50%,138px,0) rotate(14deg) scale(.72)}
+  100%{opacity:0;transform:translate3d(-50%,138px,0) rotate(14deg) scale(.72)}
+}
+@media(max-width:800px){
+  .heroart.hero-animation{height:230px;min-height:0}
+  .heroart.hero-animation>img{max-height:230px}
+  .heroart .produce-item{font-size:27px}
+}
+@media(max-width:600px){
+  .heroart.hero-animation{height:210px;min-height:0;margin-top:12px}
+  .heroart.hero-animation>img{max-height:210px;width:100%}
+  .heroart .produce-item{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .heroart .produce-item{animation:none;opacity:0}
+}
