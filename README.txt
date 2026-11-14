@@ -1,39 +1,9 @@
-DAYLIGHT DESK — WEBSITE FOLDER
+ORBITLINK WEBSITE
 
-This is a standalone static website built with plain HTML, CSS and JavaScript.
-It does not use Lovable, React, a build step, or a backend.
+1. Open index.html in a browser to preview the site.
+2. Upload index.html to your hosting provider's public web root (for example, public_html).
+3. The phone links are configured to dial +1 (920) 345-7857.
+4. The hero background image and Google Fonts load from external services, so visitors need an internet connection to see them.
 
-HOW TO OPEN
-1. Extract the ZIP file.
-2. Open the daylight-desk-website folder.
-3. Double-click index.html to preview the website in your browser.
-
-PAGES
-- index.html   Home / landing page
-- planner.html Task planner
-- focus.html   Focus timer
-- habits.html  Daily habit tracker
-- about.html   About page
-- privacy.html Privacy policy
-
-FILES
-- styles.css  Shared responsive styling
-- script.js   Shared navigation and footer year
-- planner.js  Task planner interactions
-- focus.js    Focus timer interactions
-- habits.js   Habit tracker interactions
-
-DATA & PRIVACY
-Planner tasks and habit check-ins are saved in localStorage in the visitor's browser.
-They are not sent to a server by this static website. Clearing site data in the browser
-will erase those saved entries. The focus timer is not persisted after closing/reloading.
-
-BEFORE PUBLISHING
-- Review the Privacy Policy against your actual hosting setup.
-- Add your real contact details if you want visitors to contact you.
-- The typography uses Google Fonts when internet access is available, with system
-  font fallbacks when it is not.
-- Upload the contents of this folder to any static web host (for example, Netlify,
-  GitHub Pages, or a standard web hosting file manager).
-
-No fake reviews, customer claims, or fabricated contact details are included.
+IMPORTANT:
+This is an independent third-party assistance website, not the official Starlink or SpaceX website. Keep the affiliation disclosure visible. Do not imply official authorization or access to customer accounts.
