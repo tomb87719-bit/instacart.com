@@ -1,89 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050817">
-<meta name="description" content="Independent satellite internet setup guidance and connectivity troubleshooting assistance.">
-<title>Starlink Setup Help — Independent Assistance</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-:root{--bg:#050817;--panel:#0b1730;--cyan:#20d8f5;--blue:#3677ff;--purple:#9b62ff;--muted:#a8b3c9;--white:#f6f8ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
-a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
-nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;position:absolute;top:0;left:0;right:0;z-index:10;background:#0508178c;backdrop-filter:blur(16px)}
-.brand{font:700 25px 'Space Grotesk';letter-spacing:-1px}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:30px;color:#c4cce0;font-size:14px}.navlinks a:hover{color:var(--cyan)}
-.callnav,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:13px 21px;font-weight:700;font-size:14px;transition:.25s}
-.callnav,.primary{background:linear-gradient(105deg,#12cde8,#2865f5);color:white;box-shadow:0 8px 30px #1679ff30}.callnav:hover,.btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
-.hero{min-height:850px;display:flex;align-items:center;text-align:center;position:relative;isolation:isolate;padding:150px 0 85px;overflow:hidden;background:linear-gradient(180deg,#05081735 0%,#0508177a 60%,#050817 100%),linear-gradient(90deg,#050817bb,#05081755 55%,#050817bb),url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2200&q=85') center 44%/cover}
-.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 40%,#112b5860,transparent 55%),linear-gradient(180deg,transparent 65%,var(--bg))}
-.stars{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 90px 80px,#fff,transparent),radial-gradient(1px 1px at 160px 40px,#fff,transparent);background-size:190px 130px}
-.eyebrow{display:inline-block;border:1px solid #16cbe64d;background:#062b3b99;color:#37dff5;border-radius:999px;padding:8px 15px;font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:23px}
-h1{font:700 clamp(42px,6vw,76px)/1.06 'Space Grotesk';letter-spacing:-3px;max-width:900px;margin:0 auto 23px;background:linear-gradient(100deg,#23d8ee 10%,#7a8cff 58%,#b16bff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:#d0d7e8;font-size:18px;line-height:1.65;max-width:680px;margin:0 auto 24px}.hero-contact-card{display:flex;flex-direction:column;align-items:center;gap:5px;width:min(370px,100%);margin:0 auto 28px;padding:15px 22px;border:1px solid #36e3f4;border-radius:16px;background:linear-gradient(105deg,#087eaaee,#234de8ee 58%,#7444dbee);box-shadow:0 8px 35px #1a9dff55, inset 0 1px #ffffff35;color:#fff;transition:.25s}.hero-contact-card:hover{transform:translateY(-3px);filter:brightness(1.12)}.hero-contact-label{font-size:11px;font-weight:700;letter-spacing:1.8px;color:#d8fbff}.hero-contact-card strong{font:700 clamp(25px,3.2vw,31px) 'Space Grotesk';letter-spacing:.3px}.hero-contact-hint{font-size:12px;color:#e0faff;font-weight:600}.actions{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}.secondary{border:1px solid #38cde95c;background:#071a31c9;color:#4adcf1}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:760px;margin:52px auto 0}.stat{padding:20px 16px;border:1px solid #ffffff18;border-radius:15px;background:#07162dcc;backdrop-filter:blur(12px)}.stat strong{display:block;color:#22d5ed;font:700 27px 'Space Grotesk'}.stat span{font-size:12px;color:#aebbd0}
-.scroll{display:block;margin:45px auto 0;color:var(--cyan);font-size:26px;animation:bob 1.8s infinite}@keyframes bob{50%{transform:translateY(8px)}}
-section{padding:95px 0}.section-tag{color:var(--cyan);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}.section-title{font:700 clamp(32px,4vw,48px)/1.1 'Space Grotesk';letter-spacing:-1.5px;margin:13px 0}.section-intro{color:var(--muted);max-width:650px;line-height:1.7}
-.services{background:linear-gradient(180deg,#050817,#071126)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.card{padding:28px;border-radius:18px;border:1px solid #ffffff14;background:linear-gradient(145deg,#10213b99,#081329cc);transition:.25s}.card:hover{transform:translateY(-5px);border-color:#27cfe966}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#0b4960;color:#39d9ed;font-size:23px;margin-bottom:20px}.card h3{font:600 20px 'Space Grotesk';margin:0 0 10px}.card p{color:var(--muted);line-height:1.7;font-size:14px;margin:0}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}.step{border-left:1px solid #1b4260;padding:5px 20px 10px}.step b{font:700 32px 'Space Grotesk';color:#28d8ee}.step h3{font:600 19px 'Space Grotesk'}.step p{color:var(--muted);line-height:1.7;font-size:14px}
-.banner{padding:54px;border:1px solid #2ccde944;border-radius:24px;background:radial-gradient(circle at 90% 20%,#392e7766,transparent 40%),linear-gradient(110deg,#0c2844,#0b1430);display:flex;align-items:center;justify-content:space-between;gap:25px}.banner h2{font:700 clamp(28px,4vw,42px) 'Space Grotesk';margin:10px 0}.banner p{color:var(--muted);margin:0}
-.faq{max-width:850px;margin:35px auto 0}.faq details{border-bottom:1px solid #ffffff18;padding:20px 4px}.faq summary{font-weight:700;cursor:pointer;list-style:none}.faq summary:after{content:"+";float:right;color:var(--cyan);font-size:20px}.faq details[open] summary:after{content:"−"}.faq p{color:var(--muted);line-height:1.7;font-size:14px}
-.contact{background:linear-gradient(180deg,#071126,#050817)}.contactbox{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;margin-top:35px}.contact-panel{padding:32px;border:1px solid #28d7f0a8;border-radius:20px;background:linear-gradient(145deg,#10365a,#111b42);box-shadow:0 12px 42px #087fc533}.contact-panel h3{font:600 23px 'Space Grotesk';margin-top:0}.phone{font:700 clamp(29px,4vw,40px) 'Space Grotesk';color:#ffffff;display:block;margin:15px 0;text-shadow:0 0 22px #24d9f0a8}.note{font-size:12px;line-height:1.6;color:#8795ad}
-
-.guide-preview{background:linear-gradient(180deg,#071126,#050817);border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12;padding-top:62px;padding-bottom:62px}
-.guide-heading{text-align:center}.guide-heading .section-intro{margin-left:auto;margin-right:auto}.guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
-.guide-card{display:flex;align-items:center;gap:13px;padding:16px;min-height:112px;border:1px solid #ffffff1c;border-radius:16px;background:linear-gradient(145deg,#10213b99,#081329cc);transition:.22s}
-.guide-card:hover{transform:translateY(-3px);border-color:#25d5edaa;background:#10294a}
-.guide-icon{width:92px;height:84px;flex:0 0 92px;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:12px;overflow:hidden}.guide-icon img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 10px #0008)}
-.guide-card span:nth-child(2){flex:1;min-width:0}
-.guide-card strong{display:block;font:600 16px 'Space Grotesk';color:#f5f8ff}
-.guide-card small{display:block;margin-top:5px;color:#a8b3c9;font-size:12px;line-height:1.5}
-.guide-card>b{color:#35def2;font-size:26px}
-@media(max-width:980px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.guide-grid{grid-template-columns:1fr}.guide-card{padding:17px}.guide-icon{width:76px;height:72px;flex-basis:76px}}
-
-footer{border-top:1px solid #ffffff16;padding:28px 0 90px;color:#8592a9;font-size:12px;line-height:1.7}.footrow{display:flex;justify-content:space-between;gap:25px;align-items:center;flex-wrap:wrap}.footer-links a{color:#22d5ed;font-weight:700;text-decoration:underline;text-underline-offset:4px}.footer-links a:hover{color:#fff}
-.mobilecall{display:none}
-@media(max-width:760px){.wrap{width:min(100% - 32px,560px)}nav{height:68px}.navlinks{display:none}.brand{font-size:22px}.callnav{padding:11px 14px;font-size:12px}.hero{min-height:790px;padding-top:130px;background-position:55% center}h1{letter-spacing:-1.8px}.hero p{font-size:16px}.hero-contact-card{margin-bottom:24px;padding:14px 16px}.hero-contact-card strong{font-size:26px}.stats{grid-template-columns:1fr;gap:10px;max-width:310px;margin-top:35px}.stat{padding:13px}.stat strong{font-size:23px}.stat span{font-size:11px}.cards,.steps,.contactbox{grid-template-columns:1fr}.banner{padding:30px;display:block}.banner .btn{margin-top:22px}section{padding:70px 0}.mobilecall{display:flex;position:fixed;bottom:14px;left:14px;right:14px;z-index:20;box-shadow:0 10px 40px #0009}.footrow{display:block}.footrow>*{margin-bottom:15px}}
-</style>
-</head>
-<body>
-<nav><div class="wrap" style="display:flex;align-items:center;justify-content:space-between"><a class="brand" href="#">STARLINK <span>SETUP HELP</span></a><div class="navlinks"><a href="#services">Services</a><a href="guides.html">Guides</a><a href="#process">How it works</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div><a class="callnav" href="#contact">Starlink Setup Help</a></div></nav>
-<header class="hero"><div class="stars"></div><div class="wrap"><h1>Stay Connected.<br>Beyond Boundaries.</h1><p>Practical guidance for satellite internet setup, Wi-Fi configuration and connectivity troubleshooting — wherever your connection takes you.</p><a class="hero-contact-card" href="tel:+19203457857" aria-label="Call customer assistance at +1 (920) 345-7857"><span class="hero-contact-label">CUSTOMER ASSISTANCE</span><strong>+1 (920) 345-7857</strong><span class="hero-contact-hint">Tap here to call directly&nbsp; ↗</span></a><div class="actions"><a class="btn primary" href="#services">Explore Assistance&nbsp; ↗</a><a class="btn secondary" href="#contact">Contact Support</a></div><div class="stats"><div class="stat"><strong>Setup</strong><span>Step-by-step guidance</span></div><div class="stat"><strong>Wi-Fi</strong><span>Router & network help</span></div><div class="stat"><strong>Support</strong><span>Human assistance</span></div></div><a class="scroll" href="#services" aria-label="Scroll to services">↓</a></div></header>
-<main>
-<section class="guide-preview" id="guides"><div class="wrap">
-<div class="guide-heading">
-<span class="section-tag">Explore Help Guides</span>
-<h2 class="section-title">Find the Help You Need</h2>
-<p class="section-intro">Choose a topic below to get step-by-step guides, troubleshooting tips, and setup instructions.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Order & Delivery Help | Independent Assistance</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body>
 </div>
-<div class="guide-grid">
-<a class="guide-card" href="guides.html#setup"><span class="guide-icon"><img src="assets/setup-dish.svg" alt=""></span><span><strong>Starlink Setup Guide</strong><small>Unbox, install and get online</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#wifi"><span class="guide-icon"><img src="assets/wifi-router.svg" alt=""></span><span><strong>Wi-Fi Setup &amp; Settings</strong><small>Connect devices and manage your network</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#app"><span class="guide-icon"><img src="assets/starlink-app.svg" alt=""></span><span><strong>Starlink App Guide</strong><small>Set up, manage and monitor your service</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#troubleshoot"><span class="guide-icon"><img src="assets/troubleshooting.svg" alt=""></span><span><strong>Troubleshooting</strong><small>Fix common issues and connection problems</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#performance"><span class="guide-icon"><img src="assets/network-performance.svg" alt=""></span><span><strong>Network &amp; Performance</strong><small>Improve speed, stability and reliability</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#billing"><span class="guide-icon"><img src="assets/billing-account.svg" alt=""></span><span><strong>Billing &amp; Account Help</strong><small>Payments, plans and account management</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#hardware"><span class="guide-icon"><img src="assets/equipment-hardware.svg" alt=""></span><span><strong>Equipment &amp; Hardware</strong><small>Dish, router, cables and accessories</small></span><b>›</b></a>
-<a class="guide-card" href="guides.html#outages"><span class="guide-icon"><img src="assets/service-outages.svg" alt=""></span><span><strong>Service &amp; Outages</strong><small>Check service status and outage updates</small></span><b>›</b></a>
-</div>
-</div></section>
-<section class="services" id="services"><div class="wrap"><span class="section-tag">What we can help with</span><h2 class="section-title">Reliable guidance, made simple.</h2><p class="section-intro">Get help understanding your equipment and working through common setup or connection issues with clear, practical steps.</p><div class="cards">
-<article class="card"><div class="icon">⌁</div><h3>Setup Guidance</h3><p>Understand installation steps, equipment placement and the basics of getting your satellite internet system ready.</p></article>
-<article class="card"><div class="icon">⌘</div><h3>Wi-Fi & Router Help</h3><p>Work through common router, device-connection and home Wi-Fi configuration questions.</p></article>
-<article class="card"><div class="icon">◎</div><h3>Connectivity Checks</h3><p>Get guidance for diagnosing common interruptions, slow connections and network setup issues.</p></article>
-</div></div></section>
-<section id="process"><div class="wrap"><span class="section-tag">A straightforward process</span><h2 class="section-title">How assistance works</h2><p class="section-intro">A simple way to explain the issue and get practical next steps.</p><div class="steps"><div class="step"><b>01</b><h3>Get in touch</h3><p>Call the customer assistance number and describe the setup or connectivity issue you are experiencing.</p></div><div class="step"><b>02</b><h3>Understand the issue</h3><p>Share the relevant equipment details and symptoms. Never share passwords or one-time security codes.</p></div><div class="step"><b>03</b><h3>Follow the guidance</h3><p>Receive general troubleshooting steps and guidance for the next appropriate action.</p></div></div></div></section>
-<section><div class="wrap"><div class="banner"><div><span class="section-tag">Need a hand?</span><h2>Let's get you connected.</h2><p>Speak with our independent customer assistance team.</p></div><a class="btn primary" href="tel:+19203457857">Call +1 (920) 345-7857&nbsp; →</a></div></div></section>
+<header class="main-nav"><a class="brand" href="#"><span class="brand-mark">THE<br>HOME<br>DEPOT</span><span class="brand-divider"></span><span class="brand-title">Order &amp; Delivery Help</span></a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links" id="nav-links"><a href="#order-status">Order Status</a><a href="#delivery">Delivery &amp; Tracking</a><a href="#returns">Returns &amp; Refunds</a><a href="#account">Account Help</a><a href="#guides">Browse Guides</a></nav><a class="nav-phone" href="tel:+19203457857">☎ &nbsp;+1 (920) 345-7857</a></header>
+<main><section class="hero"><div class="hero-copy"><div class="eyebrow">ORDER &amp; DELIVERY HELP</div><h1>Need help with your<br><span>Home Depot</span> order?</h1><p class="intro">Find clear, easy-to-follow information about order status, <strong>delivery</strong> tracking, returns, refunds and account questions—all in one place.</p><a class="phone-panel" href="tel:+19203457857"><span class="phone-icon">☎</span><span class="phone-text"><small>Independent Site Assistance:</small><strong class="phone-number-highlight">+1 (920) 345-7857</strong></span></a><div class="hero-actions"><a class="btn btn-orange" href="#guides">▣ &nbsp; Track Your Order</a><a class="btn btn-outline" href="#guides">Browse Help Topics</a></div></div><div class="hero-photo" role="img" aria-label="Home improvement store exterior"></div></section>
+<section class="quick-links"><a class="quick-card" id="order-status" href="topic.html?category=order"><span class="quick-icon">⬡</span><span><b>Order Status</b><small>Check your order details<br>and latest updates</small></span><i>›</i></a><a class="quick-card" id="delivery" href="topic.html?category=delivery"><span class="quick-icon">▱</span><span><b>Delivery Tracking</b><small>Track your delivery<br>and shipment information</small></span><i>›</i></a><a class="quick-card" id="returns" href="topic.html?category=returns"><span class="quick-icon">⟳</span><span><b>Returns &amp; Refunds</b><small>Get help with returns,<br>refunds, and replacements</small></span><i>›</i></a><a class="quick-card" id="account" href="topic.html?category=account"><span class="quick-icon">♙</span><span><b>Account Help</b><small>Manage your account,<br>payment, and order settings</small></span><i>›</i></a></section>
+<section class="extra-help" id="more-help">
+  <div class="extra-heading">
+    <div>
+      <h2>Quick Help Options</h2>
+      <p>Choose a topic below to find the information you're looking for.</p>
+      <span class="orange-rule"></span>
+    </div>
+  </div>
+  <div class="guide-search">
+    <span aria-hidden="true">⌕</span>
+    <input id="help-search" type="search" placeholder="Search topics and guides..." aria-label="Search topics and guides">
+  </div>
+  <div class="help-options" id="help-options">
+    <a class="help-option" href="topic.html?category=order" data-search="track order order status confirmation"><span>📦</span><b>Track an Order</b><small>Order status and updates</small></a>
+    <a class="help-option" href="topic.html?category=delivery" data-search="delivery tracking shipment package"><span>📍</span><b>Delivery Tracking</b><small>Tracking and delivery dates</small></a>
+    <a class="help-option" href="topic.html?category=returns" data-search="returns exchange item return policy"><span>↩️</span><b>Returns &amp; Exchanges</b><small>Return information and steps</small></a>
+    <a class="help-option" href="topic.html?category=refunds" data-search="refund credit money refund status"><span>💲</span><b>Refund Information</b><small>Refund process overview</small></a>
+    <a class="help-option" href="topic.html?category=payment" data-search="payment billing card charge"><span>💳</span><b>Payment &amp; Billing</b><small>Payment and charge questions</small></a>
+    <a class="help-option" href="topic.html?category=account" data-search="account sign in password profile"><span>👤</span><b>Account &amp; Sign In</b><small>Login and profile basics</small></a>
+    <a class="help-option" href="topic.html?category=product" data-search="product support warranty damaged item"><span>🛠️</span><b>Product Support</b><small>Product and warranty basics</small></a>
+    <a class="help-option" href="topic.html?category=pickup" data-search="store pickup curbside pickup"><span>🏬</span><b>Store &amp; Pickup</b><small>Pickup information</small></a>
+    <a class="help-option" href="topic.html?category=shipping" data-search="shipping delivery options scheduling"><span>🚚</span><b>Delivery Options</b><small>Shipping and scheduling</small></a>
+    <a class="help-option" href="topic.html?category=change" data-search="change cancel edit order"><span>🛒</span><b>Change or Cancel</b><small>Order change information</small></a>
+    <a class="help-option" href="topic.html?category=install" data-search="installation assembly project how to"><span>🔧</span><b>Installation &amp; Assembly</b><small>Project guidance</small></a>
+    <a class="help-option" href="topic.html?category=services" data-search="services installation rental tools"><span>🦺</span><b>Services</b><small>Installation and rental basics</small></a>
+  </div>
+</section>
 
+<section class="extra-guides" id="all-guides">
+  <div class="extra-heading split-extra">
+    <div>
+      <h2>Helpful Guides &amp; Resources</h2>
+      <p>Simple step-by-step information for common order and account questions.</p>
+      <span class="orange-rule"></span>
+    </div>
+    <a href="#guide-details">View All Guides&nbsp; →</a>
+  </div>
+  <div class="guide-cards" id="guide-cards">
+    <article class="guide-card" data-search="order status track confirmation"><div class="guide-picture">📦</div><div class="guide-card-copy"><label>ORDER GUIDE</label><h3>How to Check Your Order Status</h3><p>Learn where order updates are usually displayed.</p><a href="topic.html?category=order">Read Guide →</a></div></article>
+    <article class="guide-card" data-search="delivery tracking shipment package"><div class="guide-picture">🚚</div><div class="guide-card-copy"><label>DELIVERY GUIDE</label><h3>Understanding Delivery Tracking</h3><p>Review tracking updates and delivery estimates.</p><a href="topic.html?category=delivery">Read Guide →</a></div></article>
+    <article class="guide-card" data-search="returns exchange refund"><div class="guide-picture">↩️</div><div class="guide-card-copy"><label>RETURNS GUIDE</label><h3>What to Know Before a Return</h3><p>See what information is useful to prepare.</p><a href="topic.html?category=returns">Read Guide →</a></div></article>
+    <article class="guide-card" data-search="account sign in password"><div class="guide-picture">👤</div><div class="guide-card-copy"><label>ACCOUNT GUIDE</label><h3>Account &amp; Sign-In Basics</h3><p>Find general guidance for account access.</p><a href="topic.html?category=account">Read Guide →</a></div></article>
+  </div>
+</section>
 
-<section id="faq"><div class="wrap" style="text-align:center"><span class="section-tag">Helpful information</span><h2 class="section-title">Frequently asked questions</h2><div class="faq" style="text-align:left">
-<details><summary>Are you the official Starlink support team?</summary><p>No. This is an independent third-party assistance service and is not affiliated with, endorsed by, or sponsored by Starlink or SpaceX. For account, billing, warranty or service-plan matters, use Starlink's official website and support channels.</p></details>
-<details><summary>What kind of help can I request?</summary><p>We provide general guidance on setup, router and Wi-Fi configuration, and common connectivity troubleshooting.</p></details>
-<details><summary>Can you access or change my Starlink account?</summary><p>No. We do not claim official account access. Do not share your account password, payment details, or one-time verification codes with anyone.</p></details>
-<details><summary>Can you guarantee a particular internet speed?</summary><p>No. Internet performance depends on factors such as service availability, equipment, environment and network conditions. We do not guarantee speeds, coverage or uptime.</p></details>
-</div></div></section>
-<section class="contact" id="contact"><div class="wrap"><span class="section-tag">Contact</span><h2 class="section-title">We're here to help.</h2><p class="section-intro">For independent setup guidance and general connectivity assistance, contact us using the number below.</p><div class="contactbox"><div><h3 style="font:600 24px 'Space Grotesk'">Customer assistance</h3><p style="color:var(--muted);line-height:1.7">Call us to discuss your setup or troubleshooting question.</p><a class="btn primary" href="tel:+19203457857">☎ &nbsp;Call customer assistance</a></div><div class="contact-panel"><span class="section-tag">Call us</span><a class="phone" href="tel:+19203457857">+1 (920) 345-7857</a><p class="note">Tap the number above to call customer assistance.</p></div></div></div></section>
+<section class="guide-details" id="guide-details">
+  <div class="extra-heading">
+    <h2>Step-by-Step Help Guides</h2>
+    <p>Open a topic to see general information and suggested next steps.</p>
+    <span class="orange-rule"></span>
+  </div>
+  <div class="guide-accordions">
+    <details id="guide-order"><summary>How to check an order status</summary><ol><li>Go to the retailer's official website.</li><li>Sign in using the account used to place the order.</li><li>Open your order history and select the relevant order.</li><li>Review the latest status and estimated dates displayed there.</li></ol></details>
+    <details id="guide-delivery"><summary>How to review delivery tracking</summary><ol><li>Find the shipping confirmation from the retailer.</li><li>Open the tracking link provided in that message.</li><li>Review the latest carrier scan and estimated delivery window.</li><li>If tracking appears delayed, contact the retailer or carrier through its official support channel.</li></ol></details>
+    <details id="guide-returns"><summary>What to prepare before a return</summary><ol><li>Review the retailer's current return policy and item eligibility.</li><li>Locate your receipt or order confirmation.</li><li>Check the packaging and condition requirements.</li><li>Follow the official return instructions supplied by the retailer.</li></ol></details>
+    <details id="guide-refunds"><summary>General refund information</summary><ol><li>Check the order page for the latest return or refund status.</li><li>Review the retailer's published refund policy.</li><li>Keep any return confirmation or tracking reference.</li><li>For the status of a specific refund, contact the retailer directly.</li></ol></details>
+    <details id="guide-payment"><summary>Payment and billing basics</summary><ol><li>Review the order confirmation for the payment method used.</li><li>Compare the charge with the order total and any separate shipment charges.</li><li>Never share full card numbers, passwords, or one-time security codes with this website.</li><li>Contact the retailer or your payment provider about a specific charge.</li></ol></details>
+    <details id="guide-account"><summary>Account and sign-in basics</summary><ol><li>Make sure you are visiting the retailer's official website.</li><li>Check that you are using the correct email address or phone number.</li><li>Use the official password-reset process if you cannot sign in.</li><li>Do not share your password or verification codes.</li></ol></details>
+    <details id="guide-product"><summary>Product support and warranty information</summary><p>Check the product documentation and the manufacturer's published warranty terms. For a specific warranty claim, contact the retailer or manufacturer through its official channels.</p></details>
+    <details id="guide-pickup"><summary>Store pickup information</summary><p>Review the pickup instructions in the order confirmation. Check the selected store, pickup status, and any identification requirements listed by the retailer.</p></details>
+    <details id="guide-shipping"><summary>Delivery options and scheduling</summary><p>Available delivery options and scheduling depend on the item, address, and retailer terms. Review the options shown during checkout or in your order details.</p></details>
+    <details id="guide-change"><summary>Changing or cancelling an order</summary><p>Order changes and cancellations may only be available for a limited time. Check the order details on the retailer's official website and contact its support team promptly.</p></details>
+    <details id="guide-install"><summary>Installation and assembly guidance</summary><p>Review the product instructions and safety information before beginning a project. For installation bookings or service changes, use the retailer's official service channels.</p></details>
+    <details id="guide-services"><summary>Service and rental information</summary><p>Service availability, rental terms, deposits, and scheduling vary by location. Check the retailer's official service pages for current details.</p></details>
+  </div>
+  <p class="guide-note"><strong>Please note:</strong> These are general informational guides. This independent website cannot access customer accounts, look up orders, change or cancel purchases, issue refunds, or arrange retailer services. For account-specific assistance, use The Home Depot's official website.</p>
+</section>
+
+<section class="topics" id="guides"><div class="topics-heading"><div><h2>Popular Help Topics</h2><p>Find quick answers to the most common Home Depot order questions.</p><span class="orange-rule"></span></div><a href="#guide-list">View All Topics&nbsp; →</a></div><div class="topic-grid" id="guide-list"><article class="topic-card"><h3>Order Status</h3><p>Understand common order updates.</p></article><article class="topic-card"><h3>Delivery Tracking</h3><p>Review delivery and shipment information.</p></article><article class="topic-card"><h3>Returns &amp; Refunds</h3><p>Read general return and refund guidance.</p></article><article class="topic-card"><h3>Account Help</h3><p>Find general account information.</p></article></div></section>
+
 </main>
-<footer><div class="wrap footrow"><a class="brand" href="index.html">STARLINK <span>SETUP HELP</span></a><div class="footer-links"><a href="privacy-policy.html">Privacy Policy</a></div><div>© 2026 Starlink Setup Help. All rights reserved.</div><a href="daylight-desk/index.html" style="font-size:10px;color:#8592a9;">Daylight Desk</a></div></footer>
-<a class="btn primary mobilecall" href="tel:+19203457857">☎ &nbsp;Call customer assistance — +1 (920) 345-7857</a>
-</body></html>
+<footer class="disclosure"><strong>Website notice:</strong> This is an independent informational website and is not affiliated with The Home Depot. The phone number shown is for this website only, not Home Depot customer service.<div class="site-legal"><span>© 2026 Order &amp; Delivery Help. All rights reserved.</span><a href="privacy.html">Privacy Policy</a></div></footer><script src="script.js"></script></body></html>
